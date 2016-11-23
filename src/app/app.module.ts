@@ -6,12 +6,15 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent} from './app.component';
 import {SettingsDialog} from "./settings-dialog/settings.dialog";
 import {NotimplementedDialog} from "./settings-dialog/not-implemented";
+import {AppRoutingModule, routingComponents} from './app.routing';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     SettingsDialog,
-    NotimplementedDialog
+    NotimplementedDialog,
+    routingComponents
   ],
   entryComponents: [
     AppComponent,
@@ -21,6 +24,7 @@ import {NotimplementedDialog} from "./settings-dialog/not-implemented";
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
     HttpModule,
     MaterialModule.forRoot()
   ],

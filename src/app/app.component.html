@@ -25,6 +25,8 @@
 
         <button md-raised-button  (click)="openNotimplemented()">Anomalies</button>
 
+        <button md-raised-button [routerLink]="['/dogs']">Chiens</button>
+
         <button md-raised-button (click)="openNotimplemented()">Autres</button>
       </section>
     </md-sidenav>
@@ -52,18 +54,24 @@
     </md-sidenav>
 
 
-    <md-grid-list cols="4" rowHeight="200px">
-      <md-grid-tile *ngFor="let dog of dogs" [rowspan]="dog.rows">
-        <img src="assets/{{dog.name}}.png" alt="photo of {{dog.name}}">
-        <md-grid-tile-footer>
-          <h3 md-line>{{dog.name}}</h3>
-          <span md-line>Human: {{dog.human}}</span>
-          <button md-icon-button (click)="showDog(dog)">
-            <md-icon>info</md-icon>
-          </button>
-        </md-grid-tile-footer>
-      </md-grid-tile>
-    </md-grid-list>
+    <!-- Dogs component -->
+
+    <!--<md-grid-list cols="4" rowHeight="200px">-->
+      <!--<md-grid-tile *ngFor="let dog of dogs" [rowspan]="dog.rows">-->
+        <!--<img src="assets/{{dog.name}}.png" alt="photo of {{dog.name}}">-->
+        <!--<md-grid-tile-footer>-->
+          <!--<h3 md-line>{{dog.name}}</h3>-->
+          <!--<span md-line>Human: {{dog.human}}</span>-->
+          <!--<button md-icon-button (click)="showDog(dog)">-->
+            <!--<md-icon>info</md-icon>-->
+          <!--</button>-->
+        <!--</md-grid-tile-footer>-->
+      <!--</md-grid-tile>-->
+    <!--</md-grid-list>-->
+
+    <div class="app-content">
+      <router-outlet></router-outlet>
+    </div>
 
 
   </md-sidenav-layout>
