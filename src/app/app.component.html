@@ -1,8 +1,8 @@
 <div [class.dark-theme]="isDarkTheme">
   <md-toolbar color="primary">
     <span>
-      <md-icon class="icon-20">pets</md-icon>
-      LeashedIn
+      <md-icon class="material-icons md-light">face</md-icon>
+      SODEC Configuration
     </span>
     <button md-icon-button [md-menu-trigger-for]="menu">
       <md-icon>more_vert</md-icon>
@@ -18,22 +18,37 @@
 
   <md-sidenav-layout>
 
+    <md-sidenav md-component-id="left" mode="side" class="md-sidenav-left" #sidenavleft>
+
+      <section>
+        <button md-raised-button #boutonConfiguration>Configuration<md-icon>check</md-icon></button>
+
+        <button md-raised-button  (click)="openNotimplemented()">Anomalies</button>
+
+        <button md-raised-button (click)="openNotimplemented()">Autres</button>
+      </section>
+    </md-sidenav>
+
     <md-sidenav align="end" mode="side" #sidenav>
-      <md-tab-group>
-        <md-tab>
-          <template md-tab-label>Details</template>
-          <template md-tab-content>
-            <p>Name: {{currentDog.name}}</p>
-            <p>Human: {{currentDog.human}}</p>
-            <p>Age: {{currentDog.age}}</p>
-            <button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>
-          </template>
-        </md-tab>
-        <md-tab>
-          <template md-tab-label>Feed</template>
-          <template md-tab-content></template>
-        </md-tab>
-      </md-tab-group>
+
+
+      <!--<md-tab-group>-->
+        <!--<md-tab>-->
+          <!--<template md-tab-label>Details</template>-->
+          <!--<template md-tab-content>-->
+            <!--<p>Name: {{currentDog.name}}</p>-->
+            <!--<p>Human: {{currentDog.human}}</p>-->
+            <!--<p>Age: {{currentDog.age}}</p>-->
+            <!--<button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>-->
+          <!--</template>-->
+        <!--</md-tab>-->
+        <!--<md-tab>-->
+          <!--<template md-tab-label>Feed</template>-->
+          <!--<template md-tab-content></template>-->
+        <!--</md-tab>-->
+      <!--</md-tab-group>-->
+      <!---->
+
     </md-sidenav>
 
 

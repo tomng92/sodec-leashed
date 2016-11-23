@@ -18,6 +18,14 @@ p {
 
 [md-raised-button] {
   width: 100%;
+  line-height: 70px;
+  font-size: 24px;
+}
+
+.thanh-raised-button {
+  width: 100%;
+  line-height: 70px;
+  font-size: 24px;
 }
 
 md-grid-list {
