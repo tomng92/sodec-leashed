@@ -21,7 +21,11 @@
     <md-sidenav md-component-id="left" mode="side" class="md-sidenav-left" #sidenavleft>
 
       <section>
-        <button md-raised-button #boutonConfiguration>Configuration<md-icon>check</md-icon></button>
+        <button md-raised-button [routerLink]="['/primeng1']">PrimeNGcTables</button>
+        <button md-raised-button [routerLink]="['/primeng2upload']">PrimeNG Téléchargemen</button>
+        <!--<button md-raised-button [routerLink]="['/primeng3tree']">PrimeNG Menus hiérarchiques</button>-->
+
+        <button md-raised-button #boutonConfiguration>Configuration</button>
 
         <button md-raised-button  (click)="openNotimplemented()">Anomalies</button>
 
