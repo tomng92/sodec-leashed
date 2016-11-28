@@ -19,7 +19,8 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "sodec-leashed-theme.scss"
+        "sodec-leashed-theme.scss",
+        "../node_modules/@telerik/kendo-theme-default/dist/all.css"
       ],
       "scripts": [],
       "environments": {
