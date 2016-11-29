@@ -10,10 +10,18 @@ import {AppRoutingModule, routingComponents} from './app.routing';
 import {KendoGridTest} from './kendo-grid/kendo-grid.component';
 import {KendoUploadTest} from './kendo-upload/kendo-upload';
 import {GridModule} from '@progress/kendo-angular-grid';
-import  {UploadModule}  from '@progress/kendo-angular-upload';
+import {UploadModule}  from '@progress/kendo-angular-upload';
 
 import {MockBackend} from '@angular/http/testing';
 import {Http, BaseRequestOptions} from '@angular/http';
+import {DujardinSuperBasicDataTable} from "./dujardin-data-table/dujardinTable";
+import {DataTableBasicUsageComponent} from "./dujardin-data-table/data-table-basic-usage.component";
+import {MdDataTableModule} from "ng2-material";
+import { EditDetailComponent } from './edit-detail/edit-detail.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 
 @NgModule({
@@ -23,7 +31,10 @@ import {Http, BaseRequestOptions} from '@angular/http';
     NotimplementedDialog,
     routingComponents,
     KendoGridTest,
-    KendoUploadTest
+    KendoUploadTest,
+    DujardinSuperBasicDataTable,
+    DataTableBasicUsageComponent,
+    EditDetailComponent
   ],
   entryComponents: [
     AppComponent,
@@ -39,6 +50,8 @@ import {Http, BaseRequestOptions} from '@angular/http';
     MaterialModule.forRoot(),
 
     GridModule, UploadModule,
+    MdDataTableModule,
+    ReactiveFormsModule
 
   ],
   providers: [

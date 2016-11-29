@@ -63,6 +63,9 @@ export class AppComponent implements AfterViewInit {
 
   constructor(public dialog: MdDialog, public vcr: ViewContainerRef, public cdr: ChangeDetectorRef) {}
 
+  /**
+   * OUverture du dialogue pour changer la configuration.
+   */
   openDialog() {
     const config = new MdDialogConfig();
     config.viewContainerRef = this.vcr;
