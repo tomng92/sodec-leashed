@@ -3,9 +3,8 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { User } from './user';
 
 @Component({
-  moduleId: module.id,
   selector: 'my-app',
-  templateUrl: 'app.component.html',
+  templateUrl: 'edit-detail.component.html',
 })
 export class EditDetailComponent implements OnInit {
   public myForm: FormGroup;

@@ -21,7 +21,7 @@ export class DujardinSuperBasicDataTable implements  OnInit{
   constructor(private dialog: MdDialog, private vcr: ViewContainerRef, private _fb: FormBuilder) {}
 
   openEditDetailDialog() {
-    this.dialogRef = this.dialog.open(NotimplementedDialog);
+    //this.dialogRef = this.dialog.open(NotimplementedDialog);
 
     // this.dialogRef.afterClosed().subscribe(result => {
     //   //this.lastCloseResult = result;
