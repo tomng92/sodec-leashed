@@ -19,7 +19,10 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "sodec-leashed-theme.scss"
+        "sodec-leashed-theme.scss",
+        "../node_modules/@telerik/kendo-theme-default/dist/all.css",
+        "../node_modules/ng2-material/ng2-material.css",
+        "../node_modules/ng2-material/font/font.css"
       ],
       "scripts": [],
       "environments": {

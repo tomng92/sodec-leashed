@@ -25,7 +25,10 @@
 
         <button md-raised-button  (click)="openNotimplemented()">Anomalies</button>
 
-        <button md-raised-button [routerLink]="['/dogs']">Chiens</button>
+        <button md-raised-button [routerLink]="['/dogs']" #buttonDogs >Chiens</button>
+        <button md-raised-button [routerLink]="['/kendo-grid']" #buttonTableauKendo >Tableau Kendo</button>
+        <button md-raised-button [routerLink]="['/kendo-upload']" #buttonKendoUpload>Télécharger</button>
+        <button md-raised-button [routerLink]="['/dujardin-superbasic-datatable']">Table de base Ng2-Matériel</button>
 
         <button md-raised-button (click)="openNotimplemented()">Autres</button>
       </section>
@@ -33,41 +36,9 @@
 
     <md-sidenav align="end" mode="side" #sidenav>
 
-
-      <!--<md-tab-group>-->
-        <!--<md-tab>-->
-          <!--<template md-tab-label>Details</template>-->
-          <!--<template md-tab-content>-->
-            <!--<p>Name: {{currentDog.name}}</p>-->
-            <!--<p>Human: {{currentDog.human}}</p>-->
-            <!--<p>Age: {{currentDog.age}}</p>-->
-            <!--<button md-raised-button (click)="sidenav.close()" color="accent">CLOSE</button>-->
-          <!--</template>-->
-        <!--</md-tab>-->
-        <!--<md-tab>-->
-          <!--<template md-tab-label>Feed</template>-->
-          <!--<template md-tab-content></template>-->
-        <!--</md-tab>-->
-      <!--</md-tab-group>-->
-      <!---->
-
     </md-sidenav>
 
 
-    <!-- Dogs component -->
-
-    <!--<md-grid-list cols="4" rowHeight="200px">-->
-      <!--<md-grid-tile *ngFor="let dog of dogs" [rowspan]="dog.rows">-->
-        <!--<img src="assets/{{dog.name}}.png" alt="photo of {{dog.name}}">-->
-        <!--<md-grid-tile-footer>-->
-          <!--<h3 md-line>{{dog.name}}</h3>-->
-          <!--<span md-line>Human: {{dog.human}}</span>-->
-          <!--<button md-icon-button (click)="showDog(dog)">-->
-            <!--<md-icon>info</md-icon>-->
-          <!--</button>-->
-        <!--</md-grid-tile-footer>-->
-      <!--</md-grid-tile>-->
-    <!--</md-grid-list>-->
 
     <div class="app-content">
       <router-outlet></router-outlet>
