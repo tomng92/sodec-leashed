@@ -20,6 +20,7 @@ import { EditDetailComponent } from './edit-detail/edit-detail.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ZenDialogComponent} from './edit-detail-dialog/dialog.component';
+import { RangleGosselinComponent } from './rangle-gosselin/rangle-gosselin.component';
 
 
 
@@ -36,7 +37,8 @@ import {ZenDialogComponent} from './edit-detail-dialog/dialog.component';
     DujardinSuperBasicDataTable,
     DataTableBasicUsageComponent,
     EditDetailComponent,
-    ZenDialogComponent
+    ZenDialogComponent,
+    RangleGosselinComponent
   ],
   entryComponents: [
     AppComponent,

@@ -6,14 +6,15 @@
     </button>
   </md-toolbar>
 
-  <md-card-content *ngIf="todoList.length">
+  <md-card-content *ngIf="configList.length">
     <md-list>
       <form>
-        <md-list-item *ngFor="let todo of todoList; let index=index">
+        <md-list-item *ngFor="let elem of configList; let index=index">
 
           <div class="list-item" style="width: 100%;">
-            <md-checkbox color="primary" type="checkbox" [name]="'item'+index" [(ngModel)]="todo.completed">
-              <span [class.completed]="todo.completed">{{todo.title}}</span>
+            <md-checkbox color="primary" type="checkbox" [name]="'item'+index" [(ngModel)]="elem.completed">
+              <span [class.completed]="elem.completed">{{elem.repertoire}}</span>
+              <span [class.completed]="elem.completed">{{elem.value}}</span>
             </md-checkbox>
 
             <span>
@@ -21,8 +22,8 @@
              <md-icon>delete_forever</md-icon>
            </button>
 
-           <button md-mini-fab (click)="todoDialog(todo)" color="primary"
-                   [disabled]="todo.completed">
+           <button md-mini-fab (click)="todoDialog(elem)" color="primary"
+                   [disabled]="elem.completed">
              <md-icon>mode_edit</md-icon>
            </button>
          </span>
@@ -35,10 +36,9 @@
 </md-card>
 
 
-<app-dialog [title]="dialogTitla"
-            [template]="'Configuration:'"
+<app-dialog [template]="'Configuration:'"
             [okText]="okButtonText"
-            [value]="fieldValue"
+            [configElem]="currentConfig"
             (valueEmitted)="updateTodo($event)"
             [showDialog]="showDialog">
 </app-dialog>
