@@ -19,6 +19,8 @@ import {MdDataTableModule} from "ng2-material";
 import { EditDetailComponent } from './edit-detail/edit-detail.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {ZenDialogComponent} from './edit-detail-dialog/dialog.component';
+
 
 
 
@@ -33,7 +35,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     KendoUploadTest,
     DujardinSuperBasicDataTable,
     DataTableBasicUsageComponent,
-    EditDetailComponent
+    EditDetailComponent,
+    ZenDialogComponent
   ],
   entryComponents: [
     AppComponent,

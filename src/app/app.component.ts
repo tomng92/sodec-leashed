@@ -55,9 +55,6 @@ export class AppComponent implements AfterViewInit {
 
   }
 
-
-
-
   currentDog = {};
   isDarkTheme = false;
 
@@ -88,5 +85,7 @@ export class AppComponent implements AfterViewInit {
     //   this.dialogRef = null;
     // });
   }
+
+
 
 }

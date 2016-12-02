@@ -21,14 +21,16 @@
     <md-sidenav md-component-id="left" mode="side" class="md-sidenav-left" #sidenavleft>
 
       <section>
-        <button md-raised-button #boutonConfiguration>Configuration<md-icon>check</md-icon></button>
 
+        <button md-raised-button [routerLink]="['/edit-detail']">Configuration</button>
+
+        <button md-raised-button  (click)="openNotimplemented()">Configuration (2)</button>
         <button md-raised-button  (click)="openNotimplemented()">Anomalies</button>
 
         <button md-raised-button [routerLink]="['/dogs']" #buttonDogs >Chiens</button>
         <button md-raised-button [routerLink]="['/kendo-grid']" #buttonTableauKendo >Tableau Kendo</button>
-        <button md-raised-button [routerLink]="['/kendo-upload']" #buttonKendoUpload>Télécharger</button>
-        <button md-raised-button [routerLink]="['/dujardin-superbasic-datatable']">Table de base Ng2-Matériel</button>
+        <button md-raised-button [routerLink]="['/kendo-upload']" #buttonKendoUpload>Téléchargement de fichiers</button>
+        <button md-raised-button [routerLink]="['/dujardin-superbasic-datatable']">Table de base (ng-matériel)</button>
 
         <button md-raised-button (click)="openNotimplemented()">Autres</button>
       </section>

@@ -3,66 +3,69 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { User } from './user';
 
 @Component({
-  selector: 'my-app',
-  templateUrl: 'edit-detail.component.html',
+  // selector: 'my-app', // non utilisé
+  templateUrl: './edit-detail.component.html',
+  styleUrls: ['./edit-detail.component.css']
 })
-export class EditDetailComponent implements OnInit {
-  public myForm: FormGroup;
-  public submitted: boolean;
-  public events: any[] = [];
+export class EditDetailComponent  {
 
-  constructor(private _fb: FormBuilder) { }
 
-  ngOnInit() {
-    // the long way
-    // this.myForm = new FormGroup({
-    //     name: new FormControl('', [<any>Validators.required, <any>Validators.minLength(5)]),
-    //     address: new FormGroup({
-    //         address1: new FormControl('', <any>Validators.required),
-    //         postcode: new FormControl('8000')
-    //     })
-    // });
+  showDialog: boolean = false;
+  dialogTitla: string;
+  editingTodo: any = null;
+  fieldValue: string = '';
+  todoList: any = [];
+  okButtonText: string = 'Ajouter configuration';
 
-    // the short way
-    this.myForm = this._fb.group({
-      name: ['', [<any>Validators.required, <any>Validators.minLength(5)]],
-      address: this._fb.group({
-        street: ['', <any>Validators.required],
-        postcode: ['8000']
-      })
-    });
-
-    // subscribe to form changes
-    this.subcribeToFormChanges();
-
-    // Update single value
-    (<FormControl>this.myForm.controls['name'])
-      .setValue('John', { onlySelf: true });
-
-    // Update form model
-    // const people = {
-    // 	name: 'Jane',
-    // 	address: {
-    // 		street: 'High street',
-    // 		postcode: '94043'
-    // 	}
-    // };
-
-    // (<FormGroup>this.myForm)
-    //     .setValue(people, { onlySelf: true });
-
+  /**
+   *
+   * @param todo
+   */
+  todoDialog(todo = null) {
+    this.okButtonText = 'Ajouter élément';
+    this.dialogTitla = 'Nouvel élément';
+    this.fieldValue = '';
+    this.editingTodo = todo;
+    if (todo) {
+      this.dialogTitla = 'Modifier élément config';
+      this.fieldValue = todo.title;
+      this.okButtonText = 'Modifier élément';
+    }
+    this.showDialog = true; //ouvrir dialogue
   }
 
-  subcribeToFormChanges() {
-    const myFormStatusChanges$ = this.myForm.statusChanges;
-    const myFormValueChanges$ = this.myForm.valueChanges;
-
-    myFormStatusChanges$.subscribe(x => this.events.push({ event: 'STATUS_CHANGED', object: x }));
-    myFormValueChanges$.subscribe(x => this.events.push({ event: 'VALUE_CHANGED', object: x }));
+  remove(index: number) {
+    this.todoList.splice(index, 1);
   }
 
-  save(model: User, isValid: boolean) {
-    this.submitted = true;
-    console.log(model, isValid);
+  editTodo(title) {
+    this.editingTodo.title = title;
   }
+
+  updateTodo(title) {
+    if (title) {
+      title = title.trim();
+      if (this.editingTodo) {
+        this.editTodo(title);
+      } else {
+        this.addTodo(title);
+      }
+    }
+    this.hideDialog();
+  }
+
+  addTodo(title) {
+    const todo = {title: title, completed: false};
+    this.todoList.push(todo);
+  }
+
+  hideDialog() {
+    this.showDialog = false;
+    this.editingTodo = null;
+    this.fieldValue = null; // make sure Input is new
+  }
+
+
+
+
 }

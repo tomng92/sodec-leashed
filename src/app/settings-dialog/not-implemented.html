@@ -6,22 +6,18 @@
   <!--<md-card-content>-->
     <!--<form [formGroup]="complexForm" (ngSubmit)="submitForm(complexForm.value)">-->
       <p>Veuillez entrer vos coordonnées:</p>
-<md-input-container>
 
       <md-input  placeholder="Votre nom" value="Paul-Émile B."
                 style="width:100%"></md-input>
-</md-input-container>
 
       <md-input required placeholder="Votre téléphone" value="(999) 999-1234"
                 style="width:100%"></md-input>
 
 
-      <md-input-container>
-        <md-button  id="registerUser" value="Register" class="md-raised md-primary"
+        <button  id="registerUser" value="Register" class="md-raised md-primary"
                    aria-label="login" >
           Create
-        </md-button>
-      </md-input-container>
+        </button>
 
       <!--<button md-raised-button type(click)="dialogRef.close('cestfermé!')">Soumettre</button>-->
       <!--<button md-raised-button type="submit" class="btn btn-primary" [disabled]="!complexForm.valid"-->
