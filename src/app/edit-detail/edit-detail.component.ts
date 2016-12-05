@@ -1,21 +1,35 @@
-import { Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ConfigElem} from "../edit-detail-dialog/config-elem";
+import {ConfigService} from "../in-memory-data-service/config.service";
 
 @Component({
   // selector: 'my-app', // non utilisé
   templateUrl: './edit-detail.component.html',
   styleUrls: ['./edit-detail.component.css']
+  providers: [ConfigService]
 })
 
-export class EditDetailComponent  {
+export class EditDetailComponent implements OnInit {
 
   showDialog: boolean = false;
   dialogTitle: string;
   currentConfig: ConfigElem = null;
   configList: ConfigElem[] = []; // liste des todos existants
   okButtonText: string = 'Ajouter configuration';
-  modeAjout : boolean;
+  modeAjout: boolean;
 
+  constructor(private cfgSvc:ConfigService) {};
+
+  // implement OnInit's `ngOnInit` method
+  ngOnInit() {
+    console.log(`OnInit`);
+
+    /**
+     * Lit la liste de config elem
+     */
+    this.cfgSvc.getAllConfig().then(configs => this.configList = configs);
+
+  }
 
   /**
    * Open the TODO dialog (if todo == null, then this is to add a new todo.)
@@ -57,11 +71,11 @@ export class EditDetailComponent  {
    * @param elem
    */
   updateTodo(elem) {
-      if (this.modeAjout) {
-        this.addTodo(elem);
-      } else {
-        this._editTodo(elem);
-      }
+    if (this.modeAjout) {
+      this.addTodo(elem);
+    } else {
+      this._editTodo(elem);
+    }
 
     this.hideDialog();
   }

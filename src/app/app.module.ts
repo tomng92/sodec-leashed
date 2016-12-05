@@ -21,8 +21,10 @@ import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ZenDialogComponent} from './edit-detail-dialog/dialog.component';
 import { RangleGosselinComponent } from './rangle-gosselin/rangle-gosselin.component';
-
-
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeZookeeper }  from './in-memory-data-service/faking-zookeeper';
+import './in-memory-data-service/rxjs-operators';
+import {ConfigService} from "./in-memory-data-service/config.service";
 
 
 
@@ -55,10 +57,12 @@ import { RangleGosselinComponent } from './rangle-gosselin/rangle-gosselin.compo
 
     GridModule, UploadModule,
     MdDataTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    InMemoryWebApiModule.forRoot(FakeZookeeper),
 
   ],
   providers: [
+    ConfigService,
     BaseRequestOptions,
     MockBackend,
     {
@@ -68,6 +72,7 @@ import { RangleGosselinComponent } from './rangle-gosselin/rangle-gosselin.compo
         return new Http(backend, options);
       }
     }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {

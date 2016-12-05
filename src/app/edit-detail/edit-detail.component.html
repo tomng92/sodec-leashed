@@ -9,7 +9,7 @@
   <md-card-content *ngIf="configList.length">
     <md-list>
       <form>
-        <md-list-item *ngFor="let elem of configList; let index=index">
+        <md-list-item *ngFor="let elem of configList; let index=index ">
 
           <div class="list-item" style="width: 100%;">
             <md-checkbox color="primary" type="checkbox" [name]="'item'+index" [(ngModel)]="elem.completed">

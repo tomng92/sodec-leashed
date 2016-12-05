@@ -7,7 +7,8 @@ import { MockBackend } from '@angular/http/testing';
 @Component({
   selector: 'my-app',
   template: `
-
+    Veuillez choisir un ou plusieurs fichier:
+    <br>
     <kendo-upload
         [saveUrl]="uploadSaveUrl"
         [removeUrl]="uploadRemoveUrl"
