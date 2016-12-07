@@ -1,4 +1,4 @@
-#Test angular 2
+#Test angular 2 du Nov 22 2016
 
 - angular material 2
     - [angular-material2 de Google]() use leashed in de kara (pure google angular-material 2)
@@ -7,6 +7,7 @@
         - Justin Dujardin [ng2-material](https://github.com/justindujardin/ng2-material)
     - le dialogue de Daniel Zen fonctionne.
         - Daniel Zen dialogue : Voir [here](http://www.creativebloq.com/how-to/build-a-material-design-app-with-angular-2) (le lien [github](https://github.com/danielzen/material-todo) en bas de la page).
+
 
 
 
@@ -30,6 +31,8 @@
 - une fois ceci fait, 
 - in memory db: npm i angular-in-memory-web-api
     - Voir [Google Http](https://angular.io/docs/ts/latest/tutorial/toh-pt6.html)
+- c**eci se fait dans le Todo (maintenant Config) basé sur le projet de Daniel Zen (voir ci-haut)**
+    - voir edit-detail, edit-detail-dialog, et in-memory-data-service.
 
 ---
 ###[Bootstrap](https://github.com/twbs/bootstrap)

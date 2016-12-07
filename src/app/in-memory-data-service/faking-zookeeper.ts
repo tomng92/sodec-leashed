@@ -3,18 +3,23 @@
  */
 
 import {InMemoryDbService} from 'angular-in-memory-web-api';
-import {ConfigElem} from "../edit-detail-dialog/config-elem";
-export class FakeZookeeper implements InMemoryDbService {
+
+
+export class InMemoryZooConfig implements InMemoryDbService {
 
   createDb() {
 
-    let configItems: ConfigElem[] = [
-      new ConfigElem("/svc1/actif", "true"),
-      new ConfigElem("/TypeEntree/typ1", "charlie parker"),
-      new ConfigElem("/TypeEntree/typ2", "sidney bechet"),
-      new ConfigElem("/TypeEntree/typ3", "Louis armstrong"),
-      new ConfigElem("/TypeEntree/typ4", "maple leaf rag")];
+    let myConfigItems = [
+      { id: '1', repertoire: "/TypeEntree/cha", value: "charlie"},
+      { id: '2', repertoire: "/TypeEntree/sid", value: "sidney"},
+      { id: '3', repertoire: "/TypeEntree/lou", value: "Louis"},
+      { id: '4', repertoire: "/TypeEntree/lud", value: "ludwig"}
+    ];
+    // { id: '1', elem: new ConfigElem("/TypeEntree/cha", "charlie")},
+    // { id: '2', elem: new ConfigElem("/TypeEntree/sid", "sidney")},
+    // { id: '3', elem: new ConfigElem("/TypeEntree/lou", "Louis")},
+    // { id: '4', elem: new ConfigElem("/TypeEntree/lud", "ludwig")}];
 
-    return {configItems};
+    return {myConfigItems};
   }
 }

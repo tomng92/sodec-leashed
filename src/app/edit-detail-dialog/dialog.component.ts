@@ -13,6 +13,7 @@ export class ZenDialogComponent {
   @Input() template: string;
   @Input() okText: string;
   @Input() cancelText: string;
+
   @Output() valueEmitted = new EventEmitter<ConfigElem>();
 
   constructor() {
