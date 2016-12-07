@@ -43,5 +43,7 @@
 ---
 
 
- [dashboard](http://getbootstrap.com/examples/dashboard)
+Webpack
+- https://github.com/gonzofish/semaphore-ng2-webpack
+- [Matt Fehskens Setting Up Angular 2 with Webpack](https://semaphoreci.com/community/tutorials/setting-up-angular-2-with-webpack)
 
