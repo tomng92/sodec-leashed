@@ -21,10 +21,10 @@ import { EditDetailComponent } from './edit-detail/edit-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {ZenDialogComponent} from './edit-detail-dialog/dialog.component';
 import { RangleGosselinComponent } from './rangle-gosselin/rangle-gosselin.component';
-import './in-memory-data-service/rxjs-operators';
-import {MyConfigurationService} from "./in-memory-data-service/config.service";
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryZooConfig }  from './in-memory-data-service/faking-zookeeper';
+import { FakeZookeeper }  from './in-memory-data-service/faking-zookeeper';
+import './in-memory-data-service/rxjs-operators';
+import {ConfigService} from "./in-memory-data-service/config.service";
 
 
 
@@ -58,20 +58,20 @@ import { InMemoryZooConfig }  from './in-memory-data-service/faking-zookeeper';
     GridModule, UploadModule,
     MdDataTableModule,
     ReactiveFormsModule,
-    InMemoryWebApiModule.forRoot(InMemoryZooConfig),
+    InMemoryWebApiModule.forRoot(FakeZookeeper),
 
   ],
-  // providers: [
-  //   MyConfigurationService,
-  //   BaseRequestOptions,
-  //   MockBackend,
-  //   {
-  //     provide: Http,
-  //     deps: [MockBackend, BaseRequestOptions],
-  //     useFactory: (backend, options) => {
-  //       return new Http(backend, options);
-  //     }
-  //   }],
+  providers: [
+    ConfigService,
+    BaseRequestOptions,
+    MockBackend,
+    {
+      provide: Http,
+      deps: [MockBackend, BaseRequestOptions],
+      useFactory: (backend, options) => {
+        return new Http(backend, options);
+      }
+    }],
 
   bootstrap: [AppComponent]
 })

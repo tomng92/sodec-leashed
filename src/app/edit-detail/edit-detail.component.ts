@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ConfigElem} from "../edit-detail-dialog/config-elem";
-import {MyConfigurationService} from "../in-memory-data-service/config.service";
+import {ConfigService} from "../in-memory-data-service/config.service";
 
 @Component({
   // selector: 'my-app', // non utilisé
   templateUrl: './edit-detail.component.html',
-  styleUrls: ['./edit-detail.component.css'],
-  providers: [MyConfigurationService]
+  styleUrls: ['./edit-detail.component.css']
+  providers: [ConfigService]
 })
 
 export class EditDetailComponent implements OnInit {
@@ -17,9 +17,8 @@ export class EditDetailComponent implements OnInit {
   configList: ConfigElem[] = []; // liste des todos existants
   okButtonText: string = 'Ajouter configuration';
   modeAjout: boolean;
-  errorMessage: string;
 
-  constructor(private cfgSvc:MyConfigurationService) {};
+  constructor(private cfgSvc:ConfigService) {};
 
   // implement OnInit's `ngOnInit` method
   ngOnInit() {
@@ -28,13 +27,9 @@ export class EditDetailComponent implements OnInit {
     /**
      * Lit la liste de config elem
      */
-    this.cfgSvc.getAllConfig().subscribe(
-      configs => this.configList = configs,
-      error => this.errorMessage = <any>error);
+    this.cfgSvc.getAllConfig().then(configs => this.configList = configs);
 
-      console.log(this.configList);
   }
-
 
   /**
    * Open the TODO dialog (if todo == null, then this is to add a new todo.)
@@ -49,8 +44,8 @@ export class EditDetailComponent implements OnInit {
       this.modeAjout = false;
     } else {
       this.okButtonText = 'Ajouter élément';
-      this.currentConfig = new ConfigElem(0, "", "");
-      this.dialogTitle = 'Ajouter nouvel élément';
+      this.currentConfig = new ConfigElem("", "");
+      this.dialogTitle = 'Nouvel élément';
       this.modeAjout = true;
     }
     this.showDialog = true; //ouvrir dialogue
@@ -77,7 +72,7 @@ export class EditDetailComponent implements OnInit {
    */
   updateTodo(elem) {
     if (this.modeAjout) {
-      this.addConfig(elem);
+      this.addTodo(elem);
     } else {
       this._editTodo(elem);
     }
@@ -89,22 +84,9 @@ export class EditDetailComponent implements OnInit {
    * Add elem to the list
    * @param elem
    */
-  // addTodo(elem) {
-  //   this.configList.push(elem);
-  // }
-  /**
-   * Ajouter nouvel config elem
-   * @param configElem
-   */
-  addConfig (configElem: ConfigElem) {
-    if (!configElem) { return; }
-
-    this.cfgSvc.addConfig(configElem)
-      .subscribe(
-        configElem  => this.configList.push(),
-        error =>  this.errorMessage = <any>error);
+  addTodo(elem) {
+    this.configList.push(elem);
   }
-
 
   hideDialog() {
     this.showDialog = false;
